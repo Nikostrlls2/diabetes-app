@@ -1,0 +1,23 @@
+{
+  "name": "GlucoPilot",
+  "short_name": "GlucoPilot",
+  "description": "Carb lookup, reminders, AI coaching, and daily tracking for people with type 1 diabetes.",
+  "theme_color": "#0d7a74",
+  "background_color": "#f4efe6",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "./logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}

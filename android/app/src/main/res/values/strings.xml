@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GlucoPilot</string>
+    <string name="title_activity_main">GlucoPilot</string>
+    <string name="package_name">com.clwzy.glucopilot</string>
+    <string name="custom_url_scheme">com.clwzy.glucopilot</string>
+</resources>

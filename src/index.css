@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #15313f;
+  background:
+    radial-gradient(circle at top right, rgba(13, 122, 116, 0.1), transparent 24rem),
+    linear-gradient(180deg, #fbf4e9 0%, #f3eee5 58%, #efe5d8 100%);
+  color-scheme: light;
+  --muted: #5c707e;
+  --teal: #0d615d;
+  --line: rgba(21, 49, 63, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #15313f;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(13, 122, 116, 0.45);
+  box-shadow: 0 0 0 4px rgba(13, 122, 116, 0.12);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.primary,
+.secondary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 16px;
+  font-weight: 800;
+}
+
+.primary {
+  background: linear-gradient(160deg, #ef7d57, #d45f46);
+  color: white;
+  box-shadow: 0 16px 30px rgba(212, 95, 70, 0.18);
+}
+
+.secondary {
+  background: rgba(13, 122, 116, 0.12);
+  color: #0d615d;
+}
+
+.ghost {
+  background: rgba(21, 49, 63, 0.08);
+  color: #15313f;
+}
+
+.block {
+  width: 100%;
+}
+
+@media (hover: hover) {
+  button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 720px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
