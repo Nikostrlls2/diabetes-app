@@ -2,7 +2,7 @@ workflows:
   android-release:
     name: GlucoPilot Android Release
     max_build_duration: 60
-    instance_type: linux_x2
+    instance_type: linux
     environment:
       node: 22.14.0
       java: 17
