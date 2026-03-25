@@ -7,28 +7,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies
-node_modules/
-
-# Build outputs
-dist/
-dist-ssr/
-build/
-desktop-dist/
-release/
-
-# Env files
+node_modules
+node_modules.lnk
+dist
+dist-ssr
+build
+desktop-dist
+release
 .env
-.env.local
-.env.*.local
-
-# Local files
+.env.*
+!.env.example
+android/local.properties
+android/.gradle
+android/app/build
+android/build
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea/
+.idea
 .DS_Store
 *.suo
 *.ntvs*

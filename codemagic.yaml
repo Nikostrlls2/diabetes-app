@@ -1,0 +1,51 @@
+workflows:
+  android-release:
+    name: GlucoPilot Android Release
+    max_build_duration: 60
+    instance_type: linux_x2
+    environment:
+      node: 22.14.0
+      java: 17
+      # If you want live AI in the Android build, create a Codemagic variable group
+      # with VITE_OPENROUTER_API_KEY / VITE_OPENROUTER_MODEL and uncomment:
+      # groups:
+      #   - android_build_secrets
+      # If you later add a release keystore in Codemagic, you can also enable:
+      # android_signing:
+      #   - glucopilot_keystore
+    cache:
+      cache_paths:
+        - $HOME/.npm
+        - $HOME/.gradle/caches
+        - $HOME/.gradle/wrapper
+    scripts:
+      - name: Install npm dependencies
+        script: npm install
+
+      - name: Build web assets
+        script: npm run build
+
+      - name: Make Gradle wrapper executable
+        script: chmod +x android/gradlew
+
+      - name: Generate android/local.properties for CI
+        script: npm run android:local-properties
+
+      - name: Sync Capacitor Android project
+        script: npx cap sync android
+
+      - name: Build Android App Bundle
+        script: |
+          cd android
+          ./gradlew bundleRelease
+
+      - name: Build Android APK
+        script: |
+          cd android
+          ./gradlew assembleRelease
+
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
+      - android/app/build/outputs/apk/release/*.apk
+      - android/app/build/outputs/**/output-metadata.json
+      - android/build/reports/**/*

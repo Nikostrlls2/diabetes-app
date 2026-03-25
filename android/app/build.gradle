@@ -1,8 +1,20 @@
 apply plugin: 'com.android.application'
 
+def hasCodemagicSigning = System.getenv("CI") == "true" && System.getenv("CM_KEYSTORE_PATH")
+
 android {
     namespace = "com.clwzy.glucopilot"
     compileSdk = rootProject.ext.compileSdkVersion
+    signingConfigs {
+        release {
+            if (hasCodemagicSigning) {
+                storeFile file(System.getenv("CM_KEYSTORE_PATH"))
+                storePassword System.getenv("CM_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("CM_KEY_ALIAS")
+                keyPassword System.getenv("CM_KEY_PASSWORD")
+            }
+        }
+    }
     defaultConfig {
         applicationId "com.clwzy.glucopilot"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -20,6 +32,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (hasCodemagicSigning) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }
